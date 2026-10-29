@@ -1,0 +1,120 @@
+/* =====================================================
+   STYLE PAGE PROJET (modèle)
+   Mêmes couleurs et même ambiance que l'accueil et les réalisations
+   ===================================================== */
+
+/* --- Couleurs (identiques aux autres pages) --- */
+:root {
+    --fond: #1b1e24;
+    --fond-clair: #252932;
+    --texte: #d5d9e0;
+    --bleu: #1f4e8c;
+    --bleu-clair: #6d9eeb;
+    --rouge: #c0392b;
+}
+
+/* --- Base de la page --- */
+body {
+    background-color: var(--fond);
+    color: var(--texte);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.7;
+}
+
+/* --- Logo + barre de navigation --- */
+.logo img {
+    height: auto;
+    max-width: 100px;
+}
+
+.navbar {
+    background-color: var(--fond-clair) !important;
+    border-bottom: 3px solid var(--bleu);
+}
+
+.navbar .nav-item.nav-link {
+    color: var(--texte) !important;
+    transition: color 0.2s;
+}
+
+.navbar .nav-item.nav-link:hover,
+.navbar .nav-item.nav-link.active {
+    color: var(--rouge) !important;
+}
+
+.navbar-toggler {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* --- Lien de retour --- */
+.retour {
+    display: inline-block;
+    margin-bottom: 25px;
+    color: var(--bleu-clair);
+}
+
+.retour:hover {
+    color: var(--rouge);
+    text-decoration: none;
+}
+
+/* --- Image à gauche ---
+   Le cadre a toujours la même taille (hauteur fixe).
+   object-fit: cover recadre l'image pour qu'elle remplisse
+   le cadre, quelle que soit sa taille d'origine. */
+.projet-image {
+    height: auto;
+    background-color: var(--fond-clair);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 4px solid var(--rouge);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.projet-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* --- Texte à droite --- */
+.projet-titre {
+    color: var(--bleu-clair);
+    text-transform: uppercase;
+    font-size: 1.6rem;
+    letter-spacing: 1px;
+    position: relative;
+    padding-bottom: 12px;
+    margin-bottom: 25px;
+}
+
+/* Petit trait rouge sous le titre */
+.projet-titre::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 3px;
+    background-color: var(--rouge);
+}
+
+.btn-primary {
+    background-color: var(--bleu);
+    border-color: var(--bleu);
+    border-radius: 6px;
+}
+
+.btn-primary:hover {
+    background-color: var(--rouge);
+    border-color: var(--rouge);
+}
+
+
+@media (max-width: 991px) {
+    .projet-image {
+        height: 300px;
+        margin-bottom: 30px;
+    }
+}
+

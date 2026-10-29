@@ -1,0 +1,193 @@
+/* =====================================================
+   STYLE PAGE "MES RÉALISATIONS" - THÈME COMIC BOOK VINTAGE
+   Couleurs adoucies, bordures noires, ombres dures
+   ===================================================== */
+
+:root {
+    /* Couleurs adoucies (style BD vintage) */
+    --fond-papier: #e4dccc;   /* Beige type vieux papier/kraft doux */
+    --texte: #1a1a1a;         /* Gris très foncé */
+    --bleu-comic: #3b7bbf;    /* Bleu mat */
+    --rouge-comic: #d94545;   /* Rouge brique / patiné */
+    --jaune-comic: #e6c333;   /* Jaune moutarde plus doux */
+    --noir-encre: #1f1f1f;    /* Lignes de contour */
+}
+
+/* --- Animations brutales (Style Pop/BD) --- */
+@keyframes PopIn {
+    0% { transform: scale(0.8) translateY(50px); opacity: 0; }
+    80% { transform: scale(1.02) translateY(-5px); opacity: 1; }
+    100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+@keyframes SlideDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Base de la page --- */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--fond-papier);
+    /* Effet de trame de points discret */
+    background-image: radial-gradient(rgba(0, 0, 0, 0.04) 2px, transparent 2px);
+    background-size: 24px 24px;
+    color: var(--texte);
+    font-family: 'Segoe UI Black', 'Impact', 'Arial Black', sans-serif;
+    font-weight: bold;
+    line-height: 1.6;
+}
+
+::selection {
+    background: var(--jaune-comic);
+    color: var(--noir-encre);
+}
+
+/* --- Barre de navigation --- */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: #ffffff !important;
+    border-bottom: 5px solid var(--noir-encre);
+    box-shadow: 0 8px 0px rgba(0, 0, 0, 0.2);
+}
+
+.logo img {
+    height: auto;
+    max-width: 100px;
+    border: 3px solid var(--noir-encre);
+    box-shadow: 4px 4px 0px var(--rouge-comic);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.logo img:hover {
+    transform: translate(-3px, -3px) rotate(-5deg);
+    box-shadow: 7px 7px 0px var(--bleu-comic);
+}
+
+.navbar .nav-item.nav-link {
+    color: var(--noir-encre) !important;
+    font-family: 'Segoe UI Black', sans-serif;
+    text-transform: uppercase;
+    margin: 0 10px;
+    transition: all 0.2s;
+}
+
+.navbar .nav-item.nav-link:hover,
+.navbar .nav-item.nav-link.active {
+    color: var(--rouge-comic) !important;
+    background-color: var(--jaune-comic);
+    transform: translateY(-2px) rotate(-2deg);
+    border-radius: 3px;
+}
+
+/* --- Titre de la page (Façon "Case de titre") --- */
+.titre-page {
+    text-align: center;
+    color: var(--rouge-comic);
+    text-transform: uppercase;
+    font-size: 3rem;
+    text-shadow: 3px 3px 0px var(--noir-encre);
+    margin-top: 20px;
+    margin-bottom: 60px;
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: SlideDown 0.6s ease-out both;
+}
+
+/* Fond jaune style "Sound Effect / Titre de chapitre" */
+.titre-page::after {
+    content: '';
+    position: absolute;
+    top: -5px; left: -15px; right: -15px; bottom: -5px;
+    background-color: var(--jaune-comic);
+    border: 4px solid var(--noir-encre);
+    z-index: -1;
+    transform: rotate(-2deg);
+    box-shadow: 6px 6px 0px var(--noir-encre);
+}
+
+/* --- Grille de projets --- */
+.projets .col-lg-4 {
+    margin-bottom: 40px;
+    animation: PopIn 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+/* Les cartes arrivent une à une */
+.projets .col-lg-4:nth-child(1) { animation-delay: 0.1s; }
+.projets .col-lg-4:nth-child(2) { animation-delay: 0.2s; }
+.projets .col-lg-4:nth-child(3) { animation-delay: 0.3s; }
+.projets .col-lg-4:nth-child(4) { animation-delay: 0.4s; }
+.projets .col-lg-4:nth-child(5) { animation-delay: 0.5s; }
+.projets .col-lg-4:nth-child(6) { animation-delay: 0.6s; }
+
+/* --- Cartes des Projets --- */
+.card {
+    height: 100%;
+    background-color: #ffffff;
+    border: 5px solid var(--noir-encre);
+    border-radius: 0;
+    box-shadow: 10px 10px 0px var(--bleu-comic);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    transform: translate(-5px, -5px);
+    box-shadow: 15px 15px 0px var(--rouge-comic);
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 5px solid var(--noir-encre);
+    filter: contrast(1.2) saturate(1.1); /* Donne un côté plus illustré/dessiné */
+}
+
+.card-body {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+}
+
+.card-text {
+    color: var(--noir-encre);
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+    flex-grow: 1;
+}
+
+/* --- Bouton Voir le projet --- */
+.card .btn-primary {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--bleu-comic);
+    color: #ffffff;
+    text-transform: uppercase;
+    font-family: 'Segoe UI Black', sans-serif;
+    font-size: 1rem;
+    border: 4px solid var(--noir-encre);
+    box-shadow: 4px 4px 0px var(--noir-encre);
+    border-radius: 0;
+    align-self: flex-start;
+    transition: all 0.15s ease-in-out;
+}
+
+.card .btn-primary:hover {
+    background-color: var(--rouge-comic);
+    color: #ffffff;
+    transform: translate(-3px, -3px);
+    box-shadow: 7px 7px 0px var(--jaune-comic);
+}
+
+.card .btn-primary:active {
+    transform: translate(2px, 2px);
+    box-shadow: 0px 0px 0px var(--noir-encre);
+}

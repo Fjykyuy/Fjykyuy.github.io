@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Me contacter</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="style_contact.css">
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="index.html">
+                <div class="logo">
+                    <img src="Images/logo.png" alt="Logo">
+                </div>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link" href="index.html">Accueil</a>
+                    <a class="nav-item nav-link" href="index.html#Mon_histoire">Mon expérience</a>
+                    <a class="nav-item nav-link" href="index.html#compétences">Mes compétences</a>
+                    <a class="nav-item nav-link" href="réalisation.html">Mes réalisations</a>
+                    <a class="nav-item nav-link" href="parcours.html">Mon parcours </a>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="contact container mt-5">
+
+            <h1 class="titre-page">Me contacter</h1>
+            <p class="intro">Une question, une idée de projet, une opportunité ? Écrivez-moi, je réponds dès que
+                possible.</p>
+
+            <div class="row">
+
+                <!-- GAUCHE : mes coordonnées -->
+                <div class="col-lg-5">
+                    <div class="infos">
+
+                        <div class="info-ligne">
+                            <span class="info-icone">&#9993;</span>
+                            <div>
+                                <span class="info-label">Email</span>
+                                <a href="mailto:maxime.pedehour@gmail.com">maxime.pedehour@gmail.com</a>
+                                <!-- À MODIFIER -->
+                            </div>
+                        </div>
+
+                        <div class="info-ligne">
+                            <span class="info-icone">&#9742;</span>
+                            <div>
+                                <span class="info-label">Téléphone</span>
+                                <a href="tel:+33784438331">07 84 43 83 31</a> <!-- À MODIFIER -->
+                            </div>
+                        </div>
+
+                        <div class="info-ligne">
+                            <span class="info-icone">&#9906;</span>
+                            <div>
+                                <span class="info-label">Localisation</span>
+                                <span>Blois, France</span>
+                            </div>
+                        </div>
+
+                        <div class="reseaux">
+                            <a href="https://www.linkedin.com/in/maxime-pedehour-dev/" target="_blank" rel="noopener">LinkedIn</a> <!-- À MODIFIER -->
+                            <a href="#" target="_blank" rel="noopener">GitHub</a> <!-- À MODIFIER -->
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- DROITE : le formulaire -->
+                <div class="col-lg-7">
+                    <form id="formulaire" class="formulaire" novalidate>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="nom">Nom</label>
+                                <input type="text" id="nom" name="nom" class="form-control" placeholder="Votre nom"
+                                    required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" class="form-control"
+                                    placeholder="vous@exemple.fr" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="sujet">Sujet</label>
+                            <input type="text" id="sujet" name="sujet" class="form-control"
+                                placeholder="De quoi s'agit-il ?" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="6" class="form-control"
+                                placeholder="Votre message…" required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-envoyer">Envoyer le message</button>
+                        <p id="retour-form" class="retour-form" role="status"></p>
+                    </form>
+                </div>
+
+            </div>
+        </section>
+    </main>
+    <footer></footer>
+
+    <script>
+        // Envoi du formulaire : ouvre le logiciel de messagerie avec le message déjà rempli.
+        // À MODIFIER : mettre votre vraie adresse email ci-dessous.
+        var MON_EMAIL = "votre.email@exemple.fr";
+
+        var formulaire = document.getElementById("formulaire");
+        var retour = document.getElementById("retour-form");
+
+        formulaire.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            // Vérifie les champs et affiche les erreurs
+            var valide = true;
+            formulaire.querySelectorAll("[required]").forEach(function (champ) {
+                var ok = champ.checkValidity() && champ.value.trim() !== "";
+                champ.classList.toggle("invalide", !ok);
+                if (!ok) valide = false;
+            });
+
+            if (!valide) {
+                retour.textContent = "Merci de remplir tous les champs correctement.";
+                retour.className = "retour-form erreur";
+                return;
+            }
+
+            var nom = document.getElementById("nom").value.trim();
+            var email = document.getElementById("email").value.trim();
+            var sujet = document.getElementById("sujet").value.trim();
+            var message = document.getElementById("message").value.trim();
+
+            var corps = message + "\n\n— " + nom + " (" + email + ")";
+            window.location.href = "mailto:" + MON_EMAIL +
+                "?subject=" + encodeURIComponent(sujet) +
+                "&body=" + encodeURIComponent(corps);
+
+            retour.textContent = "Merci " + nom + " ! Votre messagerie va s'ouvrir pour envoyer le message.";
+            retour.className = "retour-form succes";
+            formulaire.reset();
+        });
+
+        // Retire le rouge dès que l'on corrige un champ
+        formulaire.addEventListener("input", function (e) {
+            e.target.classList.remove("invalide");
+        });
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

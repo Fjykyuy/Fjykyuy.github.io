@@ -1,0 +1,232 @@
+/* =====================================================
+   STYLE PAGE PROJET - THÈME COMIC BOOK VINTAGE
+   Couleurs adoucies, bordures noires, ombres dures
+   ===================================================== */
+
+:root {
+    /* Couleurs adoucies (style BD vintage) */
+    --fond-papier: #e4dccc;   /* Beige type vieux papier */
+    --texte: #1a1a1a;         /* Gris très foncé */
+    --bleu-comic: #3b7bbf;    /* Bleu mat */
+    --rouge-comic: #d94545;   /* Rouge brique */
+    --jaune-comic: #e6c333;   /* Jaune moutarde */
+    --noir-encre: #1f1f1f;    /* Lignes de contour */
+}
+
+/* --- Animations brutales (style Pop/Action) --- */
+@keyframes PopIn {
+    0% { transform: scale(0.8) translateY(50px); opacity: 0; }
+    80% { transform: scale(1.02) translateY(-5px); opacity: 1; }
+    100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+@keyframes SlideRight {
+    from { opacity: 0; transform: translateX(-40px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+
+/* --- Base de la page --- */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--fond-papier);
+    /* Trame de points discrète */
+    background-image: radial-gradient(rgba(0, 0, 0, 0.04) 2px, transparent 2px);
+    background-size: 24px 24px;
+    color: var(--texte);
+    font-family: 'Segoe UI Black', 'Impact', 'Arial Black', sans-serif;
+    font-weight: bold;
+    line-height: 1.6;
+}
+
+p {
+    font-family: 'Segoe UI', sans-serif; /* Plus lisible pour les paragraphes */
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+::selection {
+    background: var(--jaune-comic);
+    color: var(--noir-encre);
+}
+
+/* --- Logo + barre de navigation --- */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: #ffffff !important;
+    border-bottom: 5px solid var(--noir-encre);
+    box-shadow: 0 8px 0px rgba(0, 0, 0, 0.2);
+}
+
+.logo img {
+    height: auto;
+    max-width: 100px;
+    border: 3px solid var(--noir-encre);
+    box-shadow: 4px 4px 0px var(--rouge-comic);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.logo img:hover {
+    transform: translate(-3px, -3px) rotate(-5deg);
+    box-shadow: 7px 7px 0px var(--bleu-comic);
+}
+
+.navbar .nav-item.nav-link {
+    color: var(--noir-encre) !important;
+    font-family: 'Segoe UI Black', sans-serif;
+    text-transform: uppercase;
+    margin: 0 10px;
+    transition: all 0.2s;
+}
+
+.navbar .nav-item.nav-link:hover,
+.navbar .nav-item.nav-link.active {
+    color: var(--rouge-comic) !important;
+    background-color: var(--jaune-comic);
+    transform: translateY(-2px) rotate(-2deg);
+    border-radius: 3px;
+}
+
+/* --- Lien de retour --- */
+.retour {
+    display: inline-block;
+    margin-bottom: 30px;
+    color: var(--rouge-comic);
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    border-bottom: 3px solid var(--noir-encre);
+    animation: SlideRight 0.5s ease-out both;
+    transition: all 0.2s;
+}
+
+.retour:hover {
+    color: var(--bleu-comic);
+    background-color: var(--jaune-comic);
+    text-decoration: none;
+    transform: translateX(-5px);
+}
+
+/* --- Section Projet --- */
+.projet {
+    background-color: #ffffff;
+    border: 5px solid var(--noir-encre);
+    box-shadow: -15px 15px 0px var(--bleu-comic);
+    padding: 40px;
+    margin-top: 50px;
+    margin-bottom: 80px;
+    animation: PopIn 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+/* --- Image à gauche (Case de BD) --- */
+.projet-image {
+    height: 450px;
+    background-color: #ffffff;
+    border: 5px solid var(--noir-encre);
+    box-shadow: 8px 8px 0px var(--jaune-comic);
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.projet-image:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 12px 12px 0px var(--rouge-comic);
+}
+
+.projet-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: contrast(1.1) saturate(1.1); /* Effet dessin renforcé */
+}
+
+/* Image longue qui défile */
+.projet-image.defile {
+    overflow-y: auto;
+}
+.projet-image.defile img {
+    height: auto;
+    display: block;
+}
+
+/* Scrollbar personnalisée style BD pour la div défilante */
+.projet-image.defile::-webkit-scrollbar { width: 12px; }
+.projet-image.defile::-webkit-scrollbar-track { background: #fff; border-left: 3px solid var(--noir-encre); }
+.projet-image.defile::-webkit-scrollbar-thumb {
+    background: var(--jaune-comic);
+    border: 3px solid var(--noir-encre);
+}
+
+/* --- Texte à droite --- */
+.projet-titre {
+    color: var(--rouge-comic);
+    text-transform: uppercase;
+    font-size: 2.2rem;
+    text-shadow: 2px 2px 0px var(--noir-encre);
+    margin-bottom: 25px;
+    position: relative;
+    display: inline-block;
+}
+
+/* Bulle de dialogue sous-jacente stylisée */
+.projet-titre::after {
+    content: '';
+    position: absolute;
+    left: -10px;
+    bottom: -5px;
+    width: 110%;
+    height: 10px;
+    background-color: var(--jaune-comic);
+    z-index: -1;
+    transform: rotate(-2deg);
+    border: 2px solid var(--noir-encre);
+}
+
+/* --- Bouton Voir le projet --- */
+.btn-primary {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 30px;
+    background-color: var(--bleu-comic);
+    color: #ffffff;
+    text-transform: uppercase;
+    font-family: 'Segoe UI Black', sans-serif;
+    font-size: 1.2rem;
+    border: 4px solid var(--noir-encre);
+    box-shadow: 6px 6px 0px var(--noir-encre);
+    border-radius: 0;
+    transition: all 0.15s ease-in-out;
+}
+
+.btn-primary:hover {
+    background-color: var(--rouge-comic);
+    color: #ffffff;
+    transform: translate(-3px, -3px);
+    box-shadow: 9px 9px 0px var(--jaune-comic);
+}
+
+.btn-primary:active {
+    transform: translate(4px, 4px);
+    box-shadow: 0px 0px 0px var(--noir-encre);
+}
+
+/* --- Mobile --- */
+@media (max-width: 991px) {
+    .projet {
+        padding: 20px;
+        box-shadow: -8px 8px 0px var(--bleu-comic);
+    }
+    .projet-image {
+        height: 300px;
+        margin-bottom: 30px;
+    }
+}
+
+.projet-image iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
