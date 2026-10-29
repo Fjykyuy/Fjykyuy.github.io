@@ -1,0 +1,311 @@
+@font-face {
+    font-family: 'Creato';
+    src: url('fonts/CreatoDisplay-Regular.otf');
+}
+
+
+
+body{
+    display: flex;
+    flex-direction: column;
+    min-height:100vh;
+    margin:0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+main{
+    flex:1;
+}
+
+header {
+    display: grid;
+    grid-template-columns: repeat(20, 1fr);
+    grid-template-rows: 50px; 
+    align-items: center; 
+    padding: 10px;
+    gap: 10px;
+    border-bottom: 1px solid black;
+    background-color: rgb(4, 114, 4);
+}
+
+.logo img {
+    grid-column: 1/3;
+}
+
+
+nav {
+    grid-column: 3/9;
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+    font-family: Creato;
+    
+}
+
+nav a {
+    text-decoration: none;
+    color: rgb(237, 232, 232);
+    font-size: 30px;
+    gap: 5px;
+
+}
+
+
+.icone_recherche {
+    grid-column: 15;
+    border: none;
+    background-color: aliceblue;
+    cursor: pointer; 
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 50px;
+    padding: 0;
+}
+
+
+.search-wrapper {
+    grid-column: 15; 
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 25px;
+    overflow: hidden;
+    width: 50px; 
+    transition: width 0.4s ease-in-out;
+}
+
+
+.search-wrapper.active {
+    width: 250px; 
+    padding-left: 15px;
+}
+
+.search-field {
+    border: none;
+    outline: none;
+    background: transparent;
+    width: 0; /* Caché par défaut */
+    transition: width 0.4s;
+}
+
+.search-wrapper.active .search-field {
+    width: 100%; 
+}
+
+.icone_recherche img {
+    max-height: 30px;
+
+
+}
+
+.icone_form{
+    grid-column: 18;
+    display: grid;
+    background-color: aliceblue;
+    border-radius: 50%;
+    place-items: center;
+    height: 50px;
+    width: 50px;
+
+    
+    
+
+}
+.icone_form img {
+    max-height: 30px;
+
+}
+
+
+.icone_panier {
+    grid-column: 19;
+    display: grid;
+    background-color: aliceblue;
+    border-radius: 50%;
+    place-items: center;
+    height: 50px;
+    width: 50px;
+
+
+
+}
+
+.icone_panier img {
+    max-height: 30px;
+
+}
+
+.icone_compte {
+    grid-column: 20;
+    display: grid;
+    background-color: aliceblue;
+    border-radius: 50%;
+    place-items: center;
+    height: 50px;
+    width: 50px;
+
+}
+
+.icone_compte img {
+    max-height: 30px;
+
+}
+
+
+
+header img {
+    width: auto;
+    height: auto;
+    max-height: 70px;
+}    
+
+
+
+.contenu-contact {
+    max-width: 800px;
+    margin: 40px auto; 
+    padding: 0 20px;
+}
+
+.formulaire-contact {
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08); /* Ombre douce comme tes items */
+}
+
+.groupe-champ {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column; 
+}
+
+.ligne-champs {
+    display: flex;
+    gap: 20px; 
+}
+
+.ligne-champs .groupe-champ {
+    flex: 1; 
+}
+
+
+.formulaire-contact label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #333;
+    font-size: 16px;
+}
+
+.formulaire-contact input[type="text"],
+.formulaire-contact input[type="email"],
+.formulaire-contact textarea {
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px; 
+    font-size: 16px;
+    outline: none;
+    background-color: #fafafa;
+    transition: all 0.3s ease;
+}
+
+.formulaire-contact input:focus,
+.formulaire-contact textarea:focus {
+    border-color: rgb(4, 114, 4); 
+    background-color: white;
+    box-shadow: 0 0 5px rgba(4, 114, 4, 0.2);
+}
+
+.formulaire-contact textarea {
+    resize: vertical; 
+}
+
+
+.validation-formulaire {
+    text-align: right; 
+    margin-top: 10px;
+}
+
+label, main h1, button{
+    font-family: Creato;
+}
+
+
+.bouton-envoyer {
+    background-color: rgb(4, 114, 4); 
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 25px; 
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(4, 114, 4, 0.2);
+}
+
+
+.bouton-envoyer:hover {
+    background-color: #035303; 
+    transform: translateY(-2px); 
+}
+
+footer {
+    display: grid ;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 90px;    
+    background-color: rgb(4, 114, 4);
+    height: 180px;
+    font-family: Creato;
+
+}
+
+
+.logo_footer {
+    grid-column: 1 ;
+    height: 180px;
+}
+
+.autre {
+    grid-column: 2;
+    color: white;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    text-align: justify;
+}
+
+
+.autre a {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    font-size: 18px;
+
+}
+
+.categorie {
+    grid-column: 3;
+    color: white;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+}
+
+
+.categorie a {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    font-size: 18px;
+
+}

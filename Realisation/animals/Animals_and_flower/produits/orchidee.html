@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style_achat.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <title>Page Orchidée Blanche</title>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <a href='../accueil.html'><img src="../images/Logo.png" alt="Logo composé de fleur"></a>
+        </div>
+
+
+        <nav>
+            <a href="../animaux.html" class="animaux">Animaux</a>
+            <a href="../accessoires.html" class="accessoire">Accessoires</a>
+            <a href="../plantes.html" class="plante">Plantes</a>
+        </nav>
+
+        <div class="search-wrapper" id="conteneur_recherche">
+            <input type="text" class="search-field" placeholder="Rechercher..." id="bouton_entree">
+            <button type="button" class="icone_recherche" id="bouton_recherche">
+                <img src="../images/logo_recherche.png" alt="icone_recherche">
+            </button>
+            </a>
+        </div>
+
+        <a href="../contact.html" class="icone_form"><img src="../images/icone_formulaire.png"
+                alt="point d'intérrogation pour aller sur le formulaire"></a>
+        <a href="../panier.html" class="icone_panier"><img src="../images/logo_panier.png"
+                alt="dessin de panier pour aller sur le pannier du client "></a>
+        <a href="../compte.html" class="icone_compte"><img src="../images/logo_compte.png"
+                alt="Logo servant à aller sur la page de connexions à un compte"></a>
+
+
+
+    </header>
+    <main>
+
+
+        <div id="carousel_produit">
+            <a href="../accueil.html">Retour à la page d'accueil</a>
+            <h1>Orchidée blanche</h1>
+            <section id="notif" class="cache">
+                <h2>Article ajouté au panier !</h2>
+            </section>
+            <section class="flex" id="carousel">
+                <img src="../images/arrow_gauche.png" alt="Flèche gauche" class="fleche_gauche">
+                <img src="../images/orchidee1.jpg" alt="Photo produit" class="img_produit">
+                <img src="../images/arrow_droite.png" alt="Flèche droite" class="fleche_droite">
+            </section>
+        </div>
+
+        <div id="caracteristiques_produit">
+            <section id="caracteristiques" class="fond_gris">
+                <h2>Caractéristiques</h2>
+            </section>
+            <section id="description_produit">
+                <h2>Description</h2>
+            </section>
+            <section id="contenu_caracteristiques">
+                <p>Produits restants : 12</p>
+                <h1>22,90€</h1>
+
+                <input type="number" name="quantite_produit" value="0" min="0">
+                <button><i class="bi bi-basket2-fill"></i> Ajouter au panier</button>
+            </section>
+        </div>
+
+
+    </main>
+    <footer>
+        <img src="../images/Logo.png" class="logo_footer" alt="Logo composé de fleur">
+
+        <li class="autre">
+            <ul><a href="contact.html">Contact</a></ul>
+            <ul><a href="panier.html">Panier</a></ul>
+            <ul><a href="compte.html">Connexions</a> </ul>
+        </li>
+
+        <li class="categorie">
+            <ul><a href="animaux.html">Animaux</a></ul>
+            <ul><a href="plantes.html">Plantes</a></ul>
+            <ul><a href="accessoires.html">Accessoires</a> </ul>
+        </li>
+
+    </footer>
+
+    <script src="../accueil.js"></script>
+    <script src="orchidee.js"></script>
+</body>
+
+</html>
